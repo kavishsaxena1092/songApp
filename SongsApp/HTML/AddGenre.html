@@ -1,0 +1,11 @@
+﻿<div ng-controller="AddGenreController as add">
+    <div class="addTrackDiv">
+        <h3>Add new Genre   </h3>
+        <div class="textBox">
+            <label>Name</label>
+            <span class="textBox"><input type="text" ng-model="add.genrename" placeholder="Add Genre Name" /></span>
+        </div>
+        <div class="textBox">
+            <span class="textBox"><input type="button" ng-click="add.submit()" value="Add" /></span>
+        </div>
+    </div>

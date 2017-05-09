@@ -1,0 +1,89 @@
+﻿<div ng-controller="EditSongController as edit">
+    <div ng-show="edit.showlistContainer">
+        <div class="editlistcontainer" ng-repeat="song in edit.displayObj">
+            <div class="songContainer">
+                <div class="SelectButton cell"><input type="radio" name="selectedTrack" value="{{song.id}}" ng-model="edit.selectedTrack" /></div>
+                <div class="cell">{{song.title}}</div>
+                <div class="cell">[{{song.genres}}]</div>
+                <div class="cell">
+                    <fieldset class="rating">
+                        <input type="radio" id="{{'star10'+$index}}" name="{{$index+'rating'}}" value="10.0" ng-model="song.rating" />
+                        <label class="full" for="{{'star10'+$index}}" title="Awesome - 5 stars"></label>
+                        <input type="radio" id="{{'star9'+$index}}" name="{{$index+'rating'}}" value="9.0" ng-model="song.rating" />
+                        <label class="half" for="{{'star9'+$index}}" title="Pretty good - 4.5 stars"></label>
+                        <input type="radio" id="{{'star8'+$index}}" name="{{$index+'rating'}}" value="8.0" ng-model="song.rating" />
+                        <label class="full" for="{{'star8'+$index}}" title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="{{'star7'+$index}}" name="{{$index+'rating'}}" value="7.0" ng-model="song.rating" />
+                        <label class="half" for="{{'star7'+$index}}" title="Meh - 3.5 stars"></label>
+                        <input type="radio" id="{{'star6'+$index}}" name="{{$index+'rating'}}" value="6.0" ng-model="song.rating" />
+                        <label class="full" for="{{'star6'+$index}}" title="Meh - 3 stars"></label>
+                        <input type="radio" id="{{'star5'+$index}}" name="{{$index+'rating'}}" value="5.0" ng-model="song.rating" />
+                        <label class="half" for="{{'star5'+$index}}" title="Kinda bad - 2.5 stars"></label>
+                        <input type="radio" id="{{'star4'+$index}}" name="{{$index+'rating'}}" value="4.0" ng-model="song.rating" />
+                        <label class="full" for="{{'star4'+$index}}" title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="{{'star3'+$index}}" name="{{$index+'rating'}}" value="3.0" ng-model="song.rating" />
+                        <label class="half" for="{{'star3'+$index}}" title="Meh - 1.5 stars"></label>
+                        <input type="radio" id="{{'star2'+$index}}" name="{{$index+'rating'}}" value="2.0" ng-model="song.rating" />
+                        <label class="full" for="{{'star2'+$index}}" title="Sucks big time - 1 star"></label>
+                        <input type="radio" id="{{'star1'+$index}}" name="{{$index+'rating'}}" value="1.0" ng-model="song.rating" />
+                        <label class="half" for="{{'star1'+$index}}" title="Sucks big time - 0.5 stars"></label>
+                    </fieldset>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cell buttonContainer" ng-click="edit.editTrack();">
+            <div class="editbutton">Edit Track</div>
+        </div>
+    </div>
+
+    <div ng-show="edit.editListcontainer">
+        <div class="addTrackDiv">
+            <h3>Add new Track</h3>
+            <div class="textBox">
+                <label>Name</label>
+                <span class="textBox"><input type="text" ng-model="edit.song.title" placeholder="Name" /></span>
+            </div>
+
+            <div class="textBox">
+                <div class="cell">Rating</div>
+                <span><!--<input type="number" ng-model="edit.song.rating" placeholder="Rating" />--></span>
+                <div class="rating Addcell">
+                    <input type="radio" id="starRating10" name="rating" value="10.0" ng-model="edit.song.rating" />
+                    <label class="full" for="starRating10" title="Awesome - 5 stars"></label>
+                    <input type="radio" id="starRating9" name="rating" value="9.0" ng-model="edit.song.rating" />
+                    <label class="half" for="starRating9" title="Pretty good - 4.5 stars"></label>
+                    <input type="radio" id="starRating8" name="rating" value="8.0" ng-model="edit.song.rating" />
+                    <label class="full" for="starRating8" title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="starRating7" name="rating" value="7.0" ng-model="edit.song.rating" />
+                    <label class="half" for="starRating7" title="Meh - 3.5 stars"></label>
+                    <input type="radio" id="starRating6" name="rating" value="6.0" ng-model="edit.song.rating" />
+                    <label class="full" for="starRating6" title="Meh - 3 stars"></label>
+                    <input type="radio" id="starRating5" name="rating" value="5.0" ng-model="edit.song.rating" />
+                    <label class="half" for="starRating5" title="Kinda bad - 2.5 stars"></label>
+                    <input type="radio" id="starRating4" name="rating" value="4.0" ng-model="edit.song.rating" />
+                    <label class="full" for="starRating4" title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="starRating3" name="rating" value="3.0" ng-model="edit.song.rating" />
+                    <label class="half" for="starRating3" title="Meh - 1.5 stars"></label>
+                    <input type="radio" id="starRating2" name="rating" value="2.0" ng-model="edit.song.rating" />
+                    <label class="full" for="starRating2" title="Sucks big time - 1 star"></label>
+                    <input type="radio" id="starRating1" name="rating" value="1.0" ng-model="edit.song.rating" />
+                    <label class="half" for="starRating1" title="Sucks big time - 0.5 stars"></label>
+                </div>
+            </div>
+
+            <div class="textBox">
+                <label>Genres</label>
+                <span><select ng-model="edit.song.genre" placeholder="Genres">
+                <option value=""></option>
+                          <option ng-repeat="genre in edit.genresList" value="{{genre.id}}" ng-selected="genre.id==edit.song.genre">{{genre.name}}</option>
+                        </select>
+                </span>
+            </div>
+            <div class="textBox">
+                <span class="textBox"><input type="button" ng-click="edit.submit()" value="Update" /></span>
+            </div>
+        </div>
+    </div>
+</div>

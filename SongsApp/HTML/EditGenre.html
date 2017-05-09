@@ -1,0 +1,26 @@
+﻿<div ng-controller="EditGenreController as edit">
+   
+    <div ng-show="edit.showlistContainer">
+        <div class="editgenrecontainer " ng-repeat="genre in edit.genresList">
+            <div class="songContainer">
+                <div class="SelectButton cell"><input type="radio" name="selectedTrack" value="{{genre.id}}" ng-model="edit.selectedGenre" /></div>
+                <div class="cell">{{genre.name}}</div>
+            </div>
+        </div>
+        <div class="cell buttonContainer editgenrecontainer" ng-click="edit.editGenre();">
+            <div class="editbutton">Edit Genre</div>
+        </div>
+    </div>
+
+    <div ng-show="edit.editListcontainer">
+        <h3>Edit Genre   </h3>
+        <div class="textBox">
+            <label>Name</label>
+            <span class="textBox"><input type="text" ng-model="edit.genre.genrename" placeholder="Add Genre Name" /></span>
+        </div>
+        <div class="textBox">
+            <span class="textBox"><input type="button" ng-click="edit.submit()" value="Add" /></span>
+        </div>
+    </div>
+
+    </div>
