@@ -1,8 +1,15 @@
 ﻿(function () {
-    function addgenre(dataService, genreService) {
+    function addgenre(dataService, genreService, $rootscope) {
         var add = this;
 
+        function showLoadingImg() {
+            $rootscope.$broadcast('processing', { on: true });
+        }
+
         add.submit = function () {
+
+            showLoadingImg();
+
             var obj = {
                 name:""
             };
@@ -12,6 +19,7 @@
             genreService.create(obj).$promise.then(function (data) {
                 console.log(data);
                 alert("Genre created Succesfully");
+                $rootscope.$broadcast('processing', { on: false });
 
             });
         };
@@ -31,5 +39,5 @@
 
 
     var app = angular.module("songApp");
-    app.controller("AddGenreController", ['dataService', 'genreService', addgenre]);
+    app.controller("AddGenreController", ['dataService', 'genreService','$rootScope', addgenre]);
 }())

@@ -23,7 +23,9 @@
     <Content Include="HTML\AddSong.html" />
     <Content Include="HTML\EditGenre.html" />
     <Content Include="HTML\EditSong.html" />
+    <Content Include="HTML\loadingImg.html" />
     <Content Include="HTML\ViewSong.html" />
+    <Content Include="Image\Loader.jpg" />
     <Content Include="index.html" />
     <Content Include="Scripts\AddSongController.js" />
     <Content Include="Scripts\AddGenreController.js" />
@@ -39,6 +41,7 @@
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\app.route.js" />
     <Content Include="Scripts\app.service.js" />
+    <Content Include="Scripts\loader.directive.js" />
     <Content Include="Scripts\ViewSongController.js" />
     <Content Include="web.config" />
   </ItemGroup>
